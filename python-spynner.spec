@@ -1,14 +1,14 @@
 %define	module	spynner
 %define name	python-%{module}
-%define version 1.10
-%define release %mkrel 1
+%define version 2.1
+%define release 1
 
 Summary:	Programmatic web browsing module with AJAX support for Python
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	http://pypi.python.org/packages/source/s/%{module}/%{module}-%{version}.tar.gz
-Patch0:		manual-example-install-1.10.patch
+Source0:	http://pypi.python.org/packages/source/s/%{module}/%{module}-%{version}.zip
+Patch0:		manual-example-install-2.1.patch
 License:	GPLv3+
 Group:		Development/Python
 Url:		https://github.com/makinacorpus/spynner
@@ -38,12 +38,12 @@ may be used to implement web crawlers or acceptance testing tools.
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files
 %defattr(-,root,root)
-%doc CHANGES.txt COPYING README.rst examples/
-
+%doc CHANGES.rst COPYING README.rst examples/
+%py_sitedir/%{module}*
