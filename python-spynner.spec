@@ -1,6 +1,6 @@
 %define	module	spynner
 %define name	python-%{module}
-%define version 2.1
+%define version 2.2
 %define release 1
 
 Summary:	Programmatic web browsing module with AJAX support for Python
@@ -38,6 +38,9 @@ may be used to implement web crawlers or acceptance testing tools.
 
 %install
 %__rm -rf %{buildroot}
+for f in `find src/ -name "*.py"`; do
+	[ `head -1 $f` == '#!/usr/bin/python' ] && sed -si 's,#!/usr/bin/python,,g' $f;
+done
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
