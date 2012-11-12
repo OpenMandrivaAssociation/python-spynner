@@ -1,0 +1,13 @@
+--- setup.py.bak	2012-09-12 16:48:40.097691336 -0400
++++ setup.py	2012-09-12 16:48:55.472585346 -0400
+@@ -75,8 +75,8 @@
+         'test': ['ipython', 'plone.testing']
+     }, 
+     data_files = [
+-        ('share/doc/spynner/examples',
+-            ('examples/anothergoogle.py',)),
++        #('share/doc/spynner/examples',
++        #    ('examples/anothergoogle.py',)),
+         #('share/spynner/javascript',
+         #    ('src/spynner/javascript/jquery.min.js',
+         #     'src/spynner/javascript/jquery.simulate.js')),
